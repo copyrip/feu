@@ -1,19 +1,92 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Marseille brûle-t-elle ?">
     <meta name="author" content="martin@copyright.rip">
 
-    <title>Marseille brûle-t-elle ? 🌞</title>
+    <title>🌞 Marseille brûle-t-elle ? 🌞</title>
 
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/scripts.js">
-    </script>
+
+    <h1>Marseille brûle-t-elle ?</h1>
+    <h2>(non, il ne fait que <span id="temperature">666°</span>)</h2>
+
+    <h1 id="banana">
+      <img src="https://ultravnr.be/bananablack.gif">
+    </h1>
+
+    <h3>mettre de l'huile sur le feu ? 
+      <img src="https://web.archive.org/web/20090902081412/http://geocities.com/offspringbyiztok/flame.gif">
+    </h3>
+
+    <table>
+      <thead>
+	<tr>
+	  <th>[📅 date]</th>
+	  <th>[évenement]</th>
+	  <th>[📌 lieu]</th>
+	  <th>[artistes]</th>
+	  <th>[💸 prix]</th>
+	</tr>
+      </thead>
+      <tbody>
+	<tr>
+	  <td>2024-03-29</td>
+	  <td>Soirée de soutien à Office</td>
+	  <td>L'embobineuse</td>
+	  <td>
+	    <a href="">DJ DIAKI</a>
+	    <a href="">Johana Beaussart</a>
+	    <a href="">Jeune GDB</a>
+	  </td>
+	  <td>10€ (+2€ adhesion)</td>
+	</tr>
+	<!-- More rows can be added here -->
+      </tbody>
+    </table>
+
+    <footer>
+      <p>Merci à <a class="konami" target="_blank" data-title="↑ ↑ ↓ ↓ ← → ← → B A" href="http://feu.ultravnr.be">Bruxelles brûle-t-il ?</a></p>
+      <p>Vous voulez retirer une entrée ? écrivez vous à <a href="mailto:non-a@copyright.rip">non-a@copyright.rip</p>
+      <footer>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+
+	  var konamiCode = "";
+	  $(document).keydown(function(e){
+	    konamiCode += e.key;
+	    if(konamiCode == "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightba"){
+	      $('html').addClass("old");
+	    }
+	  });
+
+	  $(function() {
+	    $.getJSON('https://api.open-meteo.com/v1/forecast?latitude=43.2965&longitude=5.3698&current_weather=true', function(data) {
+	      $('#temperature').text(` ${data.current_weather.temperature} °C`);
+	    });
+	  });
+
+	  /* tooltip */
+	  $(".konami").hover(
+	    function() {
+	      var title = $(this).attr("data-title");
+	      $('<div/>', {
+		text: title,
+		class: 'box'
+	      }).appendTo(this);
+	    }, function() {
+	      $(document).find("div.box").remove();
+	    }
+	  );
+
+
+	</script>
   </body>
 </html>
 

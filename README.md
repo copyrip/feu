@@ -14,3 +14,9 @@ Prorjet clone de (Bruxelles brûle-t-il)[https://feu.ultravnr.be/]. Agenda des s
 
 * how to submit
 * make it fun 
+    * temperature
+    * graph
+    * oui, marseille brule
+    * flammes
+* s/o bxl 
+    * old theme when konami code

@@ -1,0 +1,62 @@
+.old body {
+  background:#000;
+  color:#fff;
+}
+
+.old h1 {
+  color:red;
+  font-family:"Arial", sans-serif;
+  font-size:32px;
+  text-transform:uppercase;
+  text-align:center;
+  font-style:italic;
+  font-weight:bold;
+}
+
+.old #banana {
+  display:block;
+}
+
+#banana {
+  display:none;
+}
+
+/* typography */
+
+body {
+  font-family:monospace;
+  padding:1vw;
+}
+
+h1 {
+  font-size:3vw;
+  font-weight:bolder;
+}
+
+table {
+  margin-top:2vw;
+}
+
+thead {
+  border-bottom:1px solid grey;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #f2f2f2;
+}
+
+.box {
+  background:black;
+  display:inline-block;
+  font-weight:bold;
+  color:yellow
+}
