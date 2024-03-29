@@ -6,10 +6,13 @@
     <meta name="description" content="Marseille brûle-t-elle ?">
     <meta name="author" content="martin@copyright.rip">
 
-    <title>🌞 Marseille brûle-t-elle ? 🌞</title>
+    <link rel="icon" href="./fav.ico" type="image/x-icon">
+    <title>Marseille brûle-t-elle ?</title>
 
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
   </head>
   <body>
 
@@ -19,12 +22,57 @@
     <h1 id="banana">
       <img src="https://ultravnr.be/bananablack.gif">
     </h1>
-
+<!--
     <h3>mettre de l'huile sur le feu ? 
       <img src="https://web.archive.org/web/20090902081412/http://geocities.com/offspringbyiztok/flame.gif">
-    </h3>
+      </h3>
+-->
+<form>
+  <fieldset>
+    <legend>Soumettre un événement</legend>
 
-    <table>
+    <div class="form-row">
+      <label for="nom">Nom:</label>
+      <input type="text" id="nom" />
+    </div>
+
+    <div class="form-row">
+      <label for="datepicker">Date:</label>
+      <input type="text" id="datepicker" />
+    </div>
+
+    <div class="form-row">
+      <label for="debut">Début:</label>
+      <input type="text" id="debut" class="timepicker" />
+    </div>
+
+    <div class="form-row">
+      <label for="fin">Fin:</label>
+      <input type="text" id="fin" class="timepicker" />
+    </div>
+
+    <div class="form-row">
+      <label for="lieu">Lieu:</label>
+      <input type="text" id="lieu" />
+    </div>
+
+    <fieldset>
+      <legend>Artistes</legend>
+      <div class="form-row">
+        <input type="text" id="artiste1" />
+      </div>
+      <div class="form-row">
+        <input type="text" id="artiste2" />
+      </div>
+      <div class="form-row">
+        <input type="text" id="artiste3" />
+      </div>
+    </fieldset>
+
+  </fieldset>
+</form>
+
+        <table>
       <thead>
 	<tr>
 	  <th>[📅 date]</th>
@@ -36,7 +84,7 @@
       </thead>
       <tbody>
 	<tr>
-	  <td>2024-03-29</td>
+	  <td>2024-03-29 vendredi</td>
 	  <td>Soirée de soutien à Office</td>
 	  <td>L'embobineuse</td>
 	  <td>
@@ -51,12 +99,45 @@
     </table>
 
     <footer>
+      <div>
       <p>Merci à <a class="konami" target="_blank" data-title="↑ ↑ ↓ ↓ ← → ← → B A" href="http://feu.ultravnr.be">Bruxelles brûle-t-il ?</a></p>
-      <p>Vous voulez retirer une entrée ? écrivez vous à <a href="mailto:non-a@copyright.rip">non-a@copyright.rip</p>
-      <footer>
+      <p>Vous voulez retirer une entrée ? écrivez vous à <a href="mailto:non-a@copyright.rip">non-a@copyright.rip</a></p>
+      </div>
+	<div id="fetch">
+	  <h4 id="date">vendredi 29 mars</h4>
+	  <h4 id="time">00:00:00</time>
+	</div>
+      </footer>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 	<script>
+	  function updateDateTime() {
+                // Get current date and time
+                var now = new Date();
+
+                // Format date and time in French
+                var dateString = now.toLocaleDateString('fr-FR', {
+                    weekday: 'long', // "long", "short", "narrow"
+                    year: 'numeric', // "numeric", "2-digit"
+                    month: 'long', // "numeric", "2-digit", "long", "short", "narrow"
+                    day: 'numeric', // "numeric", "2-digit"
+                });
+                var timeString = now.toLocaleTimeString('fr-FR', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+
+                // Display date and time
+                $('#date').text(dateString);
+                $('#time').text(timeString);
+            }
+
+            // Update the date and time every second
+            setInterval(updateDateTime, 1000);
+
 
 	  var konamiCode = "";
 	  $(document).keydown(function(e){
@@ -84,6 +165,26 @@
 	      $(document).find("div.box").remove();
 	    }
 	  );
+
+	  $(function() {
+	    $("#datepicker").datepicker();
+	  });
+
+
+
+	  $('.timepicker').timepicker({
+	    timeFormat: 'HH:mm',
+	    interval: 30,
+	    minTime: '00:00',
+	    maxTime: '23:00',
+	    defaultTime: '12:00',
+	    startTime: '11:00',
+	    dynamic: false,
+	    dropdown: true,
+	    scrollbar: true
+	  });
+
+
 
 
 	</script>

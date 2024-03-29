@@ -60,3 +60,28 @@ th {
   font-weight:bold;
   color:yellow
 }
+
+/* form */
+form {
+  padding:1vw;
+  border:1px solid black;
+  margin:2vw;
+}
+
+/* footer */
+footer {
+  margin-top:2vw;
+  font-size:1vw;
+  height:10vh;
+  background:#2FAEE0;
+  color:white;
+
+  display:flex;
+  flex-direction:row;
+
+}
+
+footer #time {
+  font-family:"impact", cursive;
+  font-size:4vw;
+}

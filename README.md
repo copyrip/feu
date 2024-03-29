@@ -7,6 +7,9 @@ Prorjet clone de (Bruxelles brûle-t-il)[https://feu.ultravnr.be/]. Agenda des s
 * [ ] systeme de formulaire en ligne
 * [ ] mettre en ligne
 * [ ] communiquer dessus
+* [ ] faire tout passer par un csv ? ou du php ?
+* [ ] fun place holders
+    * [ ] fake parties
 
 # event structure
 * date
